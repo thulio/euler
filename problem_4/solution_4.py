@@ -1,17 +1,23 @@
 #!/usr/bin/env python
 
-from problem_3.solution_3 import gen_primes
-
 
 def is_palindrome(str_number):
     return str_number == "".join(reversed(str_number))
 
 
 if __name__ == "__main__":
-    palindromes = []
-    primes = list(gen_primes(998001))
-    for i in range(100000, 998001):
-        if is_palindrome(str(i)) and i not in primes:
-            palindromes.append(i)
+    palindrome = 0
+    max_factor = 999
+    min_factor = 100
 
-    print(max(palindromes))
+    while min_factor <= max_factor:
+        mult = min_factor * max_factor
+        if is_palindrome(str(mult)) and mult > palindrome:
+            palindrome = mult
+
+        min_factor += 1
+        if min_factor == max_factor:
+            min_factor = 100
+            max_factor -= 1
+
+    print(palindrome)
