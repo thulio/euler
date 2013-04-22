@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from problem_2.solution_2 import fibonnaci
+from problem_2.solution import fibonnaci
 
 FIBO_NUMBERS = [(index, number) for index, number in enumerate(fibonnaci(9999))]
 
